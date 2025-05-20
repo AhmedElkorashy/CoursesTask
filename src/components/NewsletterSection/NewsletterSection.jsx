@@ -4,14 +4,7 @@ import "./NewsletterSection.css";
 
 const NewsletterSection = () => {
   const { language } = useLanguage();
-  const [email, setEmail] = useState("");
   const isRTL = language.dir === "rtl";
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Newsletter subscription for:", email);
-    setEmail("");
-  };
 
   return (
     <div className="newsletter-wrapper">
@@ -28,13 +21,11 @@ const NewsletterSection = () => {
                 ? "يمكن أن تساعدك النشرات الإخبارية على البقاء على اطلاع بأحدث الأخبار والأحداث في مجال اهتمامك."
                 : "Newsletters can help you stay up to date with the latest news and events in your field of interest."}
             </p>
-            <form onSubmit={handleSubmit} className="newsletter-form">
+            <form className="newsletter-form">
               <div className="input-group">
                 <div className="input-wrapper">
                   <input
                     type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
                     placeholder={
                       isRTL
                         ? "الرجاء إدخال بريدك الإلكتروني"
@@ -60,7 +51,7 @@ const NewsletterSection = () => {
                     </svg>
                   </span>
                 </div>
-                <button type="submit" className="newsletter-button">
+                <button type="button" className="newsletter-button">
                   {isRTL ? "اشترك" : "Subscribe"}
                 </button>
               </div>

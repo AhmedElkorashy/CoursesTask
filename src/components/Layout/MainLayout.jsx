@@ -1,5 +1,4 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import AboutSection from "../AboutSection/AboutSection";
@@ -20,7 +19,6 @@ const MainLayout = () => {
         <BlogSection />
         <PartnersSection />
         <NewsletterSection />
-        <Outlet />
       </main>
       <Footer />
     </div>

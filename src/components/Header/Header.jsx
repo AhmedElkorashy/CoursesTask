@@ -9,9 +9,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const { language, toggleLanguage } = useLanguage();
   const t = translations[language.code];
-  const [isMenuOpen, 
-    
-  ] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const [isMobileLangDropdownOpen, setIsMobileLangDropdownOpen] =
     useState(false);
@@ -144,13 +142,19 @@ const Header = () => {
             </div>
 
             <div className="flex items-center gap-2">
-              <button className="bg-[#F3F1F8] hover:bg-[#E9E6F3] text-brand-purple border-none rounded-full flex items-center gap-2 px-4 py-2">
+              <button
+                onClick={() => console.log("Login clicked")}
+                className="bg-[#F3F1F8] hover:bg-[#E9E6F3] text-brand-purple border-none rounded-full flex items-center gap-2 px-4 py-2"
+              >
                 <i className="fas fa-user w-5 h-5"></i>
-                {t.auth.login}
+                {language.code === "ar" ? "الدخول" : "Login"}
               </button>
-              <button className="bg-[#F3F1F8] hover:bg-[#E9E6F3] text-brand-purple border-none rounded-full flex items-center gap-2 px-4 py-2">
+              <button
+                onClick={() => console.log("Register clicked")}
+                className="bg-[#F3F1F8] hover:bg-[#E9E6F3] text-brand-purple border-none rounded-full flex items-center gap-2 px-4 py-2"
+              >
                 <i className="fas fa-user-plus w-5 h-5"></i>
-                {t.auth.register}
+                {language.code === "ar" ? "إنشاء حساب" : "Register"}
               </button>
             </div>
           </div>
@@ -249,13 +253,19 @@ const Header = () => {
                     )}
                   </div>
 
-                  <button className="w-full justify-center bg-[#F3F1F8] hover:bg-[#E9E6F3] text-brand-purple rounded-full text-lg">
+                  <button
+                    onClick={() => console.log("Login clicked")}
+                    className="w-full justify-center bg-[#F3F1F8] hover:bg-[#E9E6F3] text-brand-purple rounded-full text-lg"
+                  >
                     <i className="fas fa-user w-5 h-5 mr-2"></i>
-                    {t.auth.login}
+                    {language.code === "ar" ? "الدخول" : "Login"}
                   </button>
-                  <button className="w-full justify-center bg-[#F3F1F8] hover:bg-[#E9E6F3] text-brand-purple rounded-full text-lg">
+                  <button
+                    onClick={() => console.log("Register clicked")}
+                    className="w-full justify-center bg-[#F3F1F8] hover:bg-[#E9E6F3] text-brand-purple rounded-full text-lg"
+                  >
                     <i className="fas fa-user-plus w-5 h-5 mr-2"></i>
-                    {t.auth.register}
+                    {language.code === "ar" ? "إنشاء حساب" : "Register"}
                   </button>
                 </div>
               </div>

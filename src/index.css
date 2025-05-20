@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap");
 :root {
   /* Brand Colors */
   --brand-purple: #4f008c;
@@ -8,13 +9,8 @@
   --text-secondary: #6b7280;
   --text-white: #ffffff;
 
-  /* Background Colors */
-  --bg-white: #ffffff;
-  --bg-white-transparent: rgba(255, 255, 255, 0.9);
-
   /* Accent Colors */
   --yellow-accent: #facc15;
-  --yellow-accent-transparent: rgba(250, 204, 21, 0.3);
 
   /* Spacing */
   --section-padding: 4rem;
@@ -22,22 +18,10 @@
 
   /* Border Radius */
   --radius-sm: 0.5rem;
-  --radius-md: 1rem;
-  --radius-lg: 1.5rem;
-  --radius-full: 9999px;
 
   /* Transitions */
   --transition-default: 0.2s ease;
-
-  /* Z-index */
-  --z-header: 100;
-  --z-dropdown: 50;
-  --z-modal: 1000;
 }
-
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
 
 * {
   margin: 0;
@@ -171,8 +155,6 @@ section {
   -webkit-text-fill-color: transparent;
 }
 
-
-
 /* Center CRUD content */
 .crud-container {
   @apply flex flex-col items-center justify-center min-h-screen p-4;
@@ -212,7 +194,6 @@ section {
   transition-duration: 300ms;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -248,7 +229,6 @@ body {
     font-size: 1.25rem;
   }
 }
-
 /* Brand colors */
 .text-brand-purple {
   @apply text-[#4F008C];
@@ -265,7 +245,6 @@ body {
 
 .hero-text-stroke {
   -webkit-text-stroke: 1px #ffd700;
-  text-stroke: 1px #ffd700;
   padding: 0 4px;
 }
 
