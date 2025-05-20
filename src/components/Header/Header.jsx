@@ -92,7 +92,7 @@ const Header = () => {
             <div className="relative">
               <button
                 onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-                className="flex items-center gap-2 px-3 py-1.5 hover:bg-gray-100 rounded-md"
+                className="flex items-center rounded-[10px] gap-2 px-3 py-1.5 hover:bg-gray-100 "
               >
                 <span className="flex items-center gap-1">
                   {language.name}

@@ -187,7 +187,7 @@ const CoursesSection = () => {
                   {course.title}
                 </h3>
                 <div className="flex items-center justify-between">
-                  <button className="bg-purple-100 text-purple-700 px-6 py-2.5 rounded-lg font-medium inline-flex items-center gap-2 hover-effect">
+                  <button className="bg-purple-100  text-purple-700 px-6 py-2.5 rounded-lg font-medium inline-flex items-center gap-2 hover-effect">
                     <svg
                       className="w-5 h-5 bg-slate-900 rounded-full p-1"
                       fill="none"

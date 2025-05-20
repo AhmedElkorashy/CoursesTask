@@ -95,7 +95,7 @@ const BlogSection = () => {
           {content.posts.map((post) => (
             <article
               key={post.id}
-              className="bg-white shadow-xl border rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300"
+              className="bg-white shadow-xl border border-gray-200 rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300"
             >
               <div className="px-4 py-4 rounded-lg">
                 <img
@@ -148,7 +148,7 @@ const BlogSection = () => {
                   {post.excerpt}
                 </p>
                 <div className="flex justify-start">
-                  <button className="bg-purple-100 text-purple-700 px-6 py-2.5 rounded-lg font-medium inline-flex items-center gap-2 transition-colors hover:bg-purple-200">
+                  <button className="bg-purple-100 text-purple-700 px-6 py-2.5 rounded-[10px]  font-medium inline-flex items-center gap-2 transition-colors hover:bg-purple-200">
                     <svg
                       className="w-5 h-5 bg-slate-900 rounded-full p-1"
                       fill="none"
