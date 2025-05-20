@@ -1,0 +1,383 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "./styles/variables.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-primary);
+}
+
+/* RTL Support */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: var(--container-width);
+  }
+}
+
+/* Common Components */
+.section {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-description {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: all var(--transition-default);
+}
+
+.btn-primary {
+  background-color: var(--brand-purple);
+  color: var(--text-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-purple-light);
+}
+
+/* Form Elements */
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--text-secondary);
+  transition: border-color var(--transition-default);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--brand-purple);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+/* RTL Support */
+[dir="rtl"] .animate-slide-left {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+[dir="rtl"] .animate-slide-right {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  @apply font-sans overflow-x-hidden max-w-[100vw];
+}
+
+/* Layout containers */
+.container {
+  @apply px-4 mx-auto;
+  max-width: min(1280px, 100% - 2rem);
+}
+
+section {
+  @apply py-16 md:py-20 overflow-hidden;
+}
+
+/* Grid layouts */
+.grid-layout {
+  @apply grid gap-6;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 273 100% 27%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 273 100% 97%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 273 100% 97%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 273 100% 27%;
+    --radius: 1rem;
+  }
+
+  /* .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 273 100% 27%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 273 100% 27%;
+  } */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom styles */
+.gradient-bg {
+  background: linear-gradient(135deg, #4f008c 0%, #9000ff 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #4f008c 0%, #9000ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animation classes */
+.animate-from-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.6s;
+}
+
+.animate-from-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.6s;
+}
+
+.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* RTL Support */
+[dir="rtl"] .animate-from-left {
+  transform: translateX(50px);
+}
+
+[dir="rtl"] .animate-from-right {
+  transform: translateX(-50px);
+}
+
+/* Center CRUD content */
+.crud-container {
+  @apply flex flex-col items-center justify-center min-h-screen p-4;
+}
+
+.crud-content {
+  @apply w-full max-w-4xl bg-white rounded-lg shadow-lg p-6;
+}
+
+/* Mobile menu transition */
+.mobile-menu-enter {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.mobile-menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.mobile-menu-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu-exit-active {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+/* Smooth transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.BlogSection {
+  button {
+    transition: all 0.5s ease;
+  }
+}
+
+.courses {
+  button {
+    transition: all 0.5s ease;
+  }
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+/* Scroll margin for sections */
+.scroll-mt-20 {
+  scroll-margin-top: 5rem;
+}
+
+/* Responsive text */
+@media (max-width: 640px) {
+  .text-4xl {
+    font-size: 1.875rem;
+  }
+  .text-xl {
+    font-size: 1.25rem;
+  }
+}
+
+/* Brand colors */
+.text-brand-purple {
+  @apply text-[#4F008C];
+}
+
+.bg-brand-purple {
+  @apply bg-[#4F008C];
+}
+
+/* Hero Section Styles */
+.hero-image {
+  filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+.hero-text-stroke {
+  -webkit-text-stroke: 1px #ffd700;
+  text-stroke: 1px #ffd700;
+  padding: 0 4px;
+}
+
+/* Common hover effects */
+.hover-effect {
+  transition: all 0.5s ease;
+}
+
+.hover-effect:hover {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  color: white !important;
+}
+
+.hover-effect:hover svg {
+  background-color: gold;
+  transform: translateX(5px);
+  transition: all 0.3s ease;
+}

@@ -1,0 +1,41 @@
+/* Custom styles for arrows */
+.slick-prev,
+.slick-next {
+  width: 40px;
+  height: 40px;
+  background: #ffd700 !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  box-shadow: 0 0 20px 10px rgba(255, 215, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background: #ffd700 !important;
+  opacity: 0.8;
+  box-shadow: 0 0 15px 0 rgba(255, 215, 0, 0.5);
+}
+
+.slick-prev {
+  left: -50px;
+}
+
+.slick-next {
+  right: -50px;
+}
+
+/* Custom styles for dots */
+.slick-dots li button:before {
+  color: #ffd700;
+  opacity: 0.5;
+  font-size: 10px;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #ffd700;
+  opacity: 1;
+}
