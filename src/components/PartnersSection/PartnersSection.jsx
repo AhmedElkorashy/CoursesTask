@@ -100,12 +100,11 @@ const PartnersSection = () => {
               <div key={testimonial.id} className="px-6">
                 <div className="bg-white rounded-lg p-8 text-center">
                   <div className="flex items-center justify-center mb-6 min-h-[40px]">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <i
-                        key={i}
-                        className="fas fa-star w-6 h-6 text-[#FFD700] mx-1"
-                      ></i>
-                    ))}
+                    <i className="fas fa-star w-6 h-6 text-[#FFD700] mx-1"></i>
+                    <i className="fas fa-star w-6 h-6 text-[#FFD700] mx-1"></i>
+                    <i className="fas fa-star w-6 h-6 text-[#FFD700] mx-1"></i>
+                    <i className="fas fa-star w-6 h-6 text-[#FFD700] mx-1"></i>
+                    <i className="fas fa-star w-6 h-6 text-[#FFD700] mx-1"></i>
                   </div>
 
                   <p className="text-xl text-gray-800 mb-6 leading-relaxed">
