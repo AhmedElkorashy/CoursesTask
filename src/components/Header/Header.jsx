@@ -1,14 +1,8 @@
 import React, { useState } from "react";
-import {
-  useLanguage,
-  translations,
-  languages,
-} from "../../contexts/LanguageContext";
-import { Link } from "react-router-dom";
+import { useLanguage, languages } from "../../contexts/LanguageContext";
 
 const Header = () => {
-  const { language, toggleLanguage } = useLanguage();
-  const t = translations[language.code];
+  const { language, toggleLanguage, setLanguage } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const [isMobileLangDropdownOpen, setIsMobileLangDropdownOpen] =
@@ -86,7 +80,7 @@ const Header = () => {
             >
               <i className="fas fa-shopping-cart w-6 h-6"></i>
             </a>
-
+            {/* the current language */}
             <div className="relative">
               <button
                 onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
@@ -106,7 +100,7 @@ const Header = () => {
                   }`}
                 ></i>
               </button>
-
+              {/* drop down menu at lg */}
               {isLangDropdownOpen && (
                 <div className="absolute top-full right-0 mt-1 bg-white rounded-lg shadow-lg py-2 min-w-[160px]">
                   <button
@@ -158,7 +152,7 @@ const Header = () => {
               </button>
             </div>
           </div>
-
+          {/* button of the mobile links */}
           <button
             className="lg:hidden p-2 text-gray-600 hover:text-brand-purple transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -167,7 +161,7 @@ const Header = () => {
               className={`fas ${isMenuOpen ? "fa-times" : "fa-bars"} w-6 h-6`}
             ></i>
           </button>
-
+          {/* mobile div */}
           <div
             className={`lg:hidden fixed inset-0 bg-white z-[999] transition-all duration-300 ${
               isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
@@ -184,6 +178,7 @@ const Header = () => {
                     {language.code === "ar" ? "كورسات زون" : "Courses Zone"}
                   </span>
                 </a>
+                {/* close button */}
                 <button
                   className="p-2 text-gray-600 hover:text-brand-purple transition-colors"
                   onClick={() => setIsMenuOpen(false)}
@@ -229,26 +224,37 @@ const Header = () => {
                         }`}
                       ></i>
                     </button>
-
+                    {/* language menu */}
                     {isMobileLangDropdownOpen && (
                       <div className="absolute bottom-full left-0 right-0 mb-1 bg-white rounded-lg shadow-lg overflow-hidden">
-                        {Object.values(languages).map((lang) => (
-                          <button
-                            key={lang.code}
-                            onClick={() => {
-                              toggleLanguage();
-                              setIsMobileLangDropdownOpen(false);
-                            }}
-                            className="flex items-center gap-2 w-full px-4 py-3 text-left text-gray-700 hover:bg-gray-100"
-                          >
-                            <img
-                              src={lang.flag}
-                              alt={lang.name}
-                              className="w-6 h-6 rounded-sm"
-                            />
-                            {lang.name}
-                          </button>
-                        ))}
+                        <button
+                          onClick={() => {
+                            toggleLanguage();
+                            setIsMobileLangDropdownOpen(false);
+                          }}
+                          className="flex items-center gap-2 w-full px-4 py-3 text-left text-gray-700 hover:bg-gray-100"
+                        >
+                          <img
+                            src={languages.ar.flag}
+                            alt={languages.ar.name}
+                            className="w-6 h-6 rounded-sm"
+                          />
+                          {languages.ar.name}
+                        </button>
+                        <button
+                          onClick={() => {
+                            toggleLanguage();
+                            setIsMobileLangDropdownOpen(false);
+                          }}
+                          className="flex items-center gap-2 w-full px-4 py-3 text-left text-gray-700 hover:bg-gray-100"
+                        >
+                          <img
+                            src={languages.en.flag}
+                            alt={languages.en.name}
+                            className="w-6 h-6 rounded-sm"
+                          />
+                          {languages.en.name}
+                        </button>
                       </div>
                     )}
                   </div>
