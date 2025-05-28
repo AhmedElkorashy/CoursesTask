@@ -219,7 +219,7 @@ const CoursesSection = () => {
                       />
                     </svg> */}
                     {/* <Home01Icon icon={ArrowRight01Icon} /> */}
-                    <ArrowRight01Icon  size={24} />
+                    <ArrowRight01Icon  size={20} />
                     {content.courseDetails}
                   </button>
                   <span className="text-lg font-bold text-brand-purple">

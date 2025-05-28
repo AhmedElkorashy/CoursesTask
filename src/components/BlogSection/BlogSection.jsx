@@ -173,7 +173,7 @@ const BlogSection = () => {
                         d="M9 19l7-7-7-7"
                       />
                     </svg> */}
-                    <ArrowRight01Icon size={24} />
+                    <ArrowRight01Icon size={20} />
 
                     {content.readMore}
                   </button>
