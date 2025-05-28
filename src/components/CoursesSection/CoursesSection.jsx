@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLanguage } from "../../contexts/LanguageContext";
 import course1 from "../../assets/images/sara.png";
 import styles from "./CoursesSection.module.css";
 import AOS from "aos";
+import { Home01Icon } from "hugeicons-react";
+import { ArrowRight01Icon } from "hugeicons-react";
 const coursesData = {
   ar: {
     title: "أحدث الدورات التدريبية",
@@ -138,7 +140,14 @@ const CoursesSection = () => {
   const { language } = useLanguage();
   const content = coursesData[language.code];
   const isRTL = language.dir === "rtl";
+  useEffect(() => {
+    AOS.refreshHard();
+    AOS.refresh();
 
+    return () => {
+      AOS.refresh(); // Cleanup on unmount
+    };
+  }, [language]);
   return (
     <section
       id="courses"
@@ -174,7 +183,7 @@ const CoursesSection = () => {
                   <img
                     src={course.image}
                     alt={course.title}
-                    className="w-full h-48 rounded-sm object-cover"
+                    className="w-full h-48  rounded-[10px] object-cover"
                   />
                 </div>
                 <div className="absolute top-4 left-4 rounded-lg px-2 py-1 flex items-center gap-1">
@@ -183,12 +192,20 @@ const CoursesSection = () => {
                 </div>
               </div>
               <div className="p-5">
-                <h3 className="text-lg font-bold text-gray-900 mb-6 line-clamp-2 min-h-[3.5rem]">
+                <h3
+                  className={`text-lg font-bold text-gray-900 mb-6 line-clamp-2 min-h-[3.5rem] ${
+                    isRTL ? "text-right" : "text-left"
+                  }`}
+                >
                   {course.title}
                 </h3>
                 <div className="flex items-center justify-between">
-                  <button className="bg-purple-100  text-purple-700 px-6 py-2.5 rounded-lg font-medium inline-flex items-center gap-2 hover-effect">
-                    <svg
+                  <button
+                    className={`bg-purple-100  text-purple-700 px-6 py-2.5 rounded-lg font-medium inline-flex items-center gap-2 hover-effect ${
+                      isRTL ? "" : "order-1"
+                    }`}
+                  >
+                    {/* <svg
                       className="w-5 h-5 bg-slate-900 rounded-full p-1"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -200,7 +217,9 @@ const CoursesSection = () => {
                         strokeWidth={2}
                         d="M9 19l7-7-7-7"
                       />
-                    </svg>
+                    </svg> */}
+                    {/* <Home01Icon icon={ArrowRight01Icon} /> */}
+                    <ArrowRight01Icon  size={24} />
                     {content.courseDetails}
                   </button>
                   <span className="text-lg font-bold text-brand-purple">

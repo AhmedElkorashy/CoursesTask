@@ -79,8 +79,17 @@ const AboutSection = () => {
 
             <div className="space-y-6">
               {currentText.stats.map((stat, index) => (
-                <div key={index} className="flex items-center gap-4">
-                  <div className="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center">
+                <div
+                  key={index}
+                  className={`flex items-center gap-4 ${
+                    isRTL ? "" : "justify-end"
+                  }`}
+                >
+                  <div
+                    className={`w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center ${
+                      isRTL ? "" : "order-1"
+                    }`}
+                  >
                     <i className={`fas fa-check w-5 h-5`}></i>
                   </div>
                   <div className="flex items-baseline gap-2">
