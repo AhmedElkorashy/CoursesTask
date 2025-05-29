@@ -3,7 +3,6 @@ import { useLanguage } from "../../contexts/LanguageContext";
 import course1 from "../../assets/images/sara.png";
 import styles from "./CoursesSection.module.css";
 import AOS from "aos";
-import { Home01Icon } from "hugeicons-react";
 import { ArrowRight01Icon } from "hugeicons-react";
 const coursesData = {
   ar: {
@@ -201,7 +200,7 @@ const CoursesSection = () => {
                 </h3>
                 <div className="flex items-center justify-between">
                   <button
-                    className={`bg-purple-100  text-purple-700 px-6 py-2.5 rounded-lg font-medium inline-flex items-center gap-2 hover-effect ${
+                    className={`bg-purple-100  text-purple-700 px-2 lg:px-6 py-2.5 rounded-lg  lg:font-medium inline-flex items-center gap-2 hover-effect ${
                       isRTL ? "" : "order-1"
                     }`}
                   >
@@ -219,7 +218,7 @@ const CoursesSection = () => {
                       />
                     </svg> */}
                     {/* <Home01Icon icon={ArrowRight01Icon} /> */}
-                    <ArrowRight01Icon  size={20} />
+                    <ArrowRight01Icon size={20} />
                     {content.courseDetails}
                   </button>
                   <span className="text-lg font-bold text-brand-purple">
